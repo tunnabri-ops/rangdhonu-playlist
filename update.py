@@ -1,17 +1,17 @@
 import requests
 
 def update_playlist():
-    # যে সোর্স থেকে ফাইল আনবেন তার সঠিক Raw লিংক এখানে দিতে হবে
-    url = "https://raw.githubusercontent.com/public-iptv-org/BD/main/index.m3u"
+    # সরাসরি আপনার দেওয়া ফাইলের Raw লিংক
+    url = "https://raw.githubusercontent.com/public-iptv-org/BD/main/rangdhonu-playlist.m3u8"
     
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            with open("playlist.m3u", "w", encoding="utf-8") as f:
+            with open("rangdhonu-playlist.m3u8", "w", encoding="utf-8") as f:
                 f.write(response.text)
-            print("Playlist successfully updated!")
+            print("Rangdhonu playlist updated successfully!")
         else:
-            print(f"Failed to fetch, status code: {response.status_code}")
+            print(f"Failed to fetch. Status code: {response.status_code}")
     except Exception as e:
         print(f"Error: {e}")
 
